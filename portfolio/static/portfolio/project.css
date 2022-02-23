@@ -1,0 +1,13 @@
+@media (max-width:645px) {
+    section .container table th, td {
+        font-size: small;
+    }
+    section .container h3, p.lead{
+        font-size: large;
+    }
+}
+@media (max-width:400px) {
+    section .container table {
+        display: block;
+    }
+}

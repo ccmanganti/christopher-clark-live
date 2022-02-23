@@ -1,0 +1,60 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}
+    <title>Christopher Clark Manganti</title>
+    <meta name="description" content="Christopher Clark Manganti, Personal projects showcase and repository of a Computer Engineer based in the Philippines">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/project.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
+
+{% endblock title %}
+
+{% block content %}
+    
+    <section style="height: 100vh; background-color: whitesmoke;">
+
+        <div class="container ps-sm-0 ps-md-0 ps-lg-0" style="padding-top: 8%;" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-in-out">
+            <h3 class="pt-5" style="color: rgb(50, 50, 50);">Projects Repository</h3>
+            <p class="lead" style="color: rgb(50, 50, 50); font-weight: 400;">Github links on some of my personal projects.</p>
+        </div>
+        <div class="container pt-3 pb-5 ps-md-0 ps-lg-0" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-in-out">
+            <table class="table table-striped overflow-auto table-bordered projectsTable align-content-start pt-3 pb-3">
+                <thead>
+                    <tr>
+                        <th>Title - Github URLs</th>
+                        <th>Last Updated</th>
+                        <th>Language</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for projects in projects %}
+                        <tr>
+                            <td><a class="githubLink" href="" style="color: rgb(0, 67, 145); text-decoration: none;">{{ projects.title }}</a></td>
+                            <td>{{ projects.lastUpdated|date:"F d, Y" }}</td>
+                            <td>{{ projects.language }}</td>
+                            <td>{{ projects.status }}</td>
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    {% block customScript %}
+        <!-- Bootstrap Data tables CDN -->
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.projectsTable').DataTable();
+            } );
+        </script>
+    {% endblock customScript %}
+
+{% endblock content %}

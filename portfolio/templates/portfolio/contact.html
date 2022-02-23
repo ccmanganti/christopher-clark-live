@@ -1,0 +1,42 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}
+    <title>Christopher Clark Manganti</title>
+    <meta name="description" content="Christopher Clark Manganti, Contact Page  in personal website of a Computer Engineer based in the Philippines">
+{% endblock title %}
+
+{% block content %}
+        
+    <section class="pb-5" style="background-color: whitesmoke;">
+        <div class="container ps-sm-0 ps-md-0 ps-lg-0" style="padding-top: 8%;" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-in-out">
+            <h3 class="pt-5 pb-2" style="color: rgb(50, 50, 50);">Contact Me<p></p><p style="font-weight: 400; font-size: large;">{{ firstName }}</p></h3>
+            <form class="row g-3" action="{% url 'contact' %}" method="post">
+                <div class="col-md-6">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input name="lastName" type="text" class="form-control" id="lastName" required>
+                </div>
+                <div class="col-md-8">
+                    <label for="emailInfo" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="emailInfo" name="message-email" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input type="text" class="form-control" id="subject" name="message-subject" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="3" name="message" required></textarea>
+                </div>
+                <div class="col-md-12 pb-3">
+                    <button type="submit" class="btn text-light text-center ps-3 pe-3" style="background-color: rgb(50, 50, 50); border-radius: 0;">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+{% endblock content %}

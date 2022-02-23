@@ -1,0 +1,123 @@
+{% extends 'portfolio/base.html' %}
+
+
+{% block title %}
+    <title>Christopher Clark Manganti</title>
+    <meta name="description" content="Christopher Clark Manganti is a Computer Engineering major who aspire to specialize in Embedded Systems, Android and Backend Web Development.">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/home.css' %}">
+{% endblock title %}
+
+
+{% block content %}
+    <!-- Customizable Content Here -->
+    <!-- Background Image -->
+    {% load static %}
+    <!-- Main Content -->
+    <section>
+        <div class="bg-image pt-5 text-light branding" 
+            style="background-image: linear-gradient( rgba(2, 2, 2, 0.288), rgba(0, 0, 0, 0.452)),
+            url('{% static 'portfolio/mainBackground4.jpg' %}'); 
+            height: 100vh; 
+            background-position: center center;
+            background-size: cover;">
+
+            <div class="container px-0 mt-5 mt-md-2 mt-lg-3 text-sm-start brandingContent">
+                <h2 data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-delay="200"><em>Hi there! I am</em></h2>
+                <h1 data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-delay="200">Christopher Clark Manganti.</h1>
+                <p class="lead" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-delay="500">Currently a sophomore Computer Engineering major in a university, as well as a 
+                    Backend Web and Android Development enthusiast.</p>
+            </div>
+
+            <div class="container logoTop px-0 pt-2" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-delay="600">
+                <a href="https://www.facebook.com/ccmanganti"><i class="bi bi-facebook"></i></a>
+                <a href="https://m.me/ccmanganti"><i class="bi bi-messenger"></i></a>
+                <a href="https://www.linkedin.com/in/ccmanganti/"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/ccmanganti"><i class="bi bi-github"></i></a>
+                <a href="https://www.youtube.com/channel/UCWupEP18zVCC8e2tLl6QQ7Q"><i class="bi bi-youtube"></i></a>
+                <a href="https://twitter.com/ccmanganti"><i class="bi bi-twitter"></i></a>
+            
+                <button class="btn btn-outline-light btn-lg d-flex mt-3 text-light seeMyWork" style="border-radius: 0;"><a href="{% url 'projects' %}">See My Projects</a></button>
+            </div>
+            
+            <div class="container px-0 mt-4 mt-lg-5 text-md-start text-center">
+                <a href="#myWork" style="text-decoration: none; font-size: large;">Read More</a>
+            </div>
+            <div class="container px-0 text-md-start text-center readMore ps-lg-4">
+                <a id="myWork" href="#myWork"><img src="{% static 'portfolio/arrow.png' %}" style="width: 35px; padding-top: 10px;"></a>
+            </div>
+        </div>
+    </section>
+    <!-- I'm Currently Learning -->
+    <section style="background-color: whitesmoke; color: rgb(50, 50, 50);">
+        <div class="container pt-5">
+            <h2 class="pt-3 pb-2" data-aos="fade-right" data-aos-duration="700" data-aos-easing="ease-in-out">My Work</h2>
+                <p class="pt-5 pb-5 pe-lg-5" style="margin: 0; font-size: large; font-weight: 500;" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-in-out">I'm currently studying Bachelor of Science in Computer Engineering at Don Honorio Ventura State University in Pampanga. 
+                    Besides my studies, I work part time as Graphic Artist and Video Editor as well as a Freelance Front-End Web Developer to be able to supplement my needs
+                    and ultimately, to gain experience and ready myself for the actual industry. These are some of the tools that I've used and or currently learning:</p>
+                
+            <div class="row pt-3 pt-lg-5 pb-5" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-in-out" style="font-size: medium;">
+                <div class="col-12 col-md-6 col-lg-4 pb-3">
+                    <h5>Software/Web Development</h5>
+                    <ul>
+                        <li>Web Development: Python Django for Backend and HTML, Vanilla CSS, Vanilla Javascript and Bootstrap 5 for Frontend.</li>
+                        <li>Database: MySQL/SQLite/WampServer.</li>
+                        <li>API Development: Python-FastAPI.</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 pb-3">
+                   <h5>Graphic/Video Production</h5>
+                   <ul>
+                       <li>Graphics: Photoshop, Canva and Photopea for digital design, printed design/graphics and mockups.</li>
+                       <li>Video Production: Filmora X on Desktop and Kinemaster on Mobile.</li>
+                   </ul>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 pb-3">
+                    <h5>Computer Engineering</h5>
+                        <ul>
+                        <li>Electrical Engineering: Arduino, C++ and C for low-level programming.</li>
+                        <li>Drafting/Digital Drawings: AutoCAD and NanoCAD</li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Recent Projects -->
+    <section style="background-color: rgb(50, 50, 50);">
+        <div class="container pt-5">
+            <h2 class="pt-3 text-light" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in-out">Recent Projects</h2>
+            <p class="lead text-light pb-4" data-aos="fade-right" data-aos-duration="700" data-aos-easing="ease-in-out" style="font-size: larger;">Take a look at some of recent personal projects I've been working on.</p>
+            <div class="row pb-5 text-center">
+                {% for project in projects %}
+                    <div class="col-12 col-md-6 col-lg-4 pb-3">
+                        <div class="card" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-delay="100" style="border: 0;">
+                            <a href="{% url 'blog' %}"><img src="{{ project.previewImage.url }}" alt="Personal Website" class="card-img-top"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ project.title }}</h5>
+                                <p class="card-text">{{ project.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %} 
+            </div>
+        </div>
+    </section>
+
+    <!-- What I'm looking forward to -->
+    <section style="background-color: whitesmoke; color: rgb(50, 50, 50);">
+        <div class="container pt-5 pb-5">
+            <h2 class="pt-3" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in-out">What I'm Looking Forward To</h2>
+            <p class="lead pb-4" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in-out" style="font-size: larger; font-weight: 400;">Here are some of my interests and subjects that I might take on or teach myself in the future.</p>
+            <ul class="pb-5" style="font-weight: 400;" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-in-out">
+                <li>Computer Vision (Python OpenCV Framework)</li>
+                <li>Logic Circuits Design (Electronics Engineering)</li>
+                <li>Web Automation (Python Selenium)</li>
+                <li>Drone Programming (Python Dronekit)</li>
+                <li>Embedded Systems Engineering</li>
+                <li>API Development w/ Python</li>
+            </ul>
+            <p style="font-size: large; font-weight: 400;" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-in-out">I have more interests and ideas in mind to present in the future. You can support me by donating on  my Coins.ph or Paypal account.</p>
+        </div>
+    </section>
+
+{% endblock content %}

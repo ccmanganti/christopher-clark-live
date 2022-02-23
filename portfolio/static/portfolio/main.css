@@ -1,0 +1,40 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.nav-item {
+    padding: 0 2px 0 2px;
+}
+
+.nav-item:hover {
+    background-color: rgba(177, 177, 177, 0.13);
+    transition: .3s;
+}
+
+.navbar-collapse {
+    transition: .25s;
+}
+.container .bi {
+    font-size: xx-large;
+    padding-right: 28px;
+}
+
+@media (max-width:767px) {
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.952);
+    }
+
+    .navbar-collapse .navbar-nav .nav-item .nav-link {
+        color: rgb(75, 75, 75);
+    }
+    .navbar .navbar-brand, .navbar button.navbar-toggler{
+        color: black;
+    }
+}
+@media (max-width:645px) {
+    .container .bi {
+        font-size: larger;
+        padding-right: 17px;
+    }
+
+}
