@@ -6,7 +6,7 @@ The website will be used for the deployment of my personal projects and portfoli
 ## Deployment
 
 Files are hosted directly with this github repository and deployed with heroku. <br/>
-You can preview the progress of this website with this [link](https://www.christopher-clark.herokuapp.com).
+You can preview the progress of this website with this [link](https://christopher-clark.herokuapp.com).
 
 ## Built With
 
